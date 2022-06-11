@@ -18,7 +18,7 @@
         "drupal/checklistapi": "^2.0",
         "drupal/config_ignore": "2.3.0",
         "drupal/config_rewrite": "^1.4",
-        "drupal/core": "~9.2.20 || ~9.3.14",
+        "drupal/core": "~9.3.16 || ~9.4.0-alpha1",
         "drupal/default_content": "2.0.0-alpha1",
         "drupal/diff": "^1",
         "drupal/entity_clone": "1.0-beta6",
@@ -32,7 +32,6 @@
         "drupal/memcache": "^2.2",
         "drupal/moderation_dashboard": "1.0.0-beta3",
         "drupal/moderation_sidebar": "^1.5",
-        "drupal/mysql56": "^1.0",
         "drupal/password_policy": "^3.0",
         "drupal/pathauto": "^1",
         "drupal/recaptcha": "^3",
@@ -78,8 +77,7 @@
             },
             "drupal/core": {
                 "3059955 - It is possible to overflow the number of items allowed in Media Library": "https://www.drupal.org/files/issues/2019-12-28/3082690-80.patch",
-                "3160238 - Media Library widget produces \"This value should not be null\" error when field is required": "https://www.drupal.org/files/issues/2020-10-08/3160238-25.patch",
-                "3160238 - SQLite database locking errors cause fatal errors": "https://www.drupal.org/files/issues/1120020-59.patch"
+                "3160238 - Media Library widget produces \"This value should not be null\" error when field is required": "https://www.drupal.org/files/issues/2020-10-08/3160238-25.patch"
             },
             "drupal/default_content": {
                 "2698425 - Duplicate content issues in default content": "https://git.drupalcode.org/project/default_content/-/merge_requests/5.patch"
