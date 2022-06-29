@@ -177,7 +177,24 @@ class ConfigEventsSubscriber implements EventSubscriberInterface {
             break;
         }
       }
-    }
+      if ($this->moduleHandler->moduleExists('samlauth')) {
+        if ($config->getName() == 'samlauth.authentication') {
+          _acquia_cms_common_update_page_configurations('samlauth.authentication', [
+            'map_users' => TRUE,
+            'map_users_name' => TRUE,
+            'map_users_mail' => TRUE,
+            'map_users_roles' => [
+              'administrator' => 'administrator',
+              'developer' => 'developer',
+              'content_administrator' => 'content_administrator',
+              'content_author' => 'content_author',
+              'content_editor' => 'content_editor',
+              'user_administrator' => 'user_administrator',
+            ]
+          ]);
+        }
+      }
+    } 
   }
 
 }
