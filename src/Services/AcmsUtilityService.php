@@ -2,6 +2,7 @@
 
 namespace Drupal\acquia_cms_common\Services;
 
+use Drupal\Core\State\StateInterface;
 use Drupal\cohesion\Drush\DX8CommandHelpers;
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Extension\ModuleHandlerInterface;
@@ -26,6 +27,13 @@ class AcmsUtilityService {
   protected $configFactory;
 
   /**
+   * The state service.
+   *
+   * @var \Drupal\Core\State\StateInterface
+   */
+  protected $state;
+
+  /**
    * The module preinstall triggered status.
    *
    * @var string
@@ -47,10 +55,13 @@ class AcmsUtilityService {
    *   The ModuleHandlerInterface.
    * @param \Drupal\Core\Config\ConfigFactoryInterface $config_factory
    *   The config factory.
+   * @param \Drupal\Core\State\StateInterface $state
+   *   The state service.
    */
-  public function __construct(ModuleHandlerInterface $moduleHandler, ConfigFactoryInterface $config_factory) {
+  public function __construct(ModuleHandlerInterface $moduleHandler, ConfigFactoryInterface $config_factory, StateInterface $state) {
     $this->moduleHandler = $moduleHandler;
     $this->configFactory = $config_factory;
+    $this->state = $state;
   }
 
   /**
@@ -222,6 +233,29 @@ class AcmsUtilityService {
     if (static::$modulePreinstallTriggered !== NULL) {
       return static::$modulePreinstallTriggered;
     }
+    return NULL;
+  }
+
+  /**
+   * Get selected starter-kit.
+   *
+   * @return string|null
+   *   The starter-kit name or null.
+   */
+  public function getStarterKit(): ?string {
+    // List of available starter kits.
+    $starter_kits = [
+      'acquia_cms_enterprise_low_code' => 'Acquia CMS Enterprise Low Code',
+      'acquia_cms_headless' => 'Acquia CMS Headless' ,
+      'acquia_cms_community' => 'Acquia CMS Community',
+    ];
+
+    // Check for the starter kit selection.
+    if ($starter_kit = $this->state->get('acquia_cms.starter_kit')) {
+      // Return starter-kit value.
+      return $starter_kits[$starter_kit];
+    }
+
     return NULL;
   }
 
