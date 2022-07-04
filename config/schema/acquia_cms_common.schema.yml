@@ -39,7 +39,7 @@ node.type.*.third_party.acquia_cms_common:
       label: 'Machine name of the sitemap variant where the content type will be added'
 
 # See \Drupal\acquia_cms_common\Facade\WorkbenchEmailFacade::addTemplate()
-workbench_email.workbench_email_template.third_party.acquia_cms_common:
+workbench_email.workbench_email_template.*.third_party.acquia_cms_common:
   type: mapping
   label: 'Acquia CMS settings'
   mapping:
