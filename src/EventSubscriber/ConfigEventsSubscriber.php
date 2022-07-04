@@ -186,6 +186,7 @@ class ConfigEventsSubscriber implements EventSubscriberInterface {
             'map_users_roles' => [
               'administrator' => 'administrator',
               'developer' => 'developer',
+              'site_builder' => 'site_builder',
               'content_administrator' => 'content_administrator',
               'content_author' => 'content_author',
               'content_editor' => 'content_editor',
