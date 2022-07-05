@@ -26,3 +26,8 @@ services:
       - '@acquia_cms_common.utility'
     tags:
       - { name: drush.command }
+
+  acquia_cms_common.acms_status:
+    class: 'Drupal\acquia_cms_common\Commands\AcmsStatus'
+    tags:
+      - { name: drush.command_info_alterer }
