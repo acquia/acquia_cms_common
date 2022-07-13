@@ -109,7 +109,7 @@ class NodeBreadcrumbTest extends BrowserTestBase {
   }
 
   /**
-   * Returns the breadcrumb contents of the current page in the internal browser.
+   * Returns the breadcrumb contents of current page in the internal browser.
    */
   protected function getBreadcrumbParts() {
     $parts = [];
@@ -125,4 +125,5 @@ class NodeBreadcrumbTest extends BrowserTestBase {
     }
     return $parts;
   }
+
 }
