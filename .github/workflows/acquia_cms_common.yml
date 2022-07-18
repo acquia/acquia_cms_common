@@ -79,7 +79,7 @@ jobs:
       CI: TRUE
     strategy:
       matrix:
-        core-version: ["CURRENT", "PREVIOUS_MINOR"]
+        core-version: ["CURRENT"]
         orca-job:
           - ISOLATED_TEST_ON_CURRENT
         base-url:
