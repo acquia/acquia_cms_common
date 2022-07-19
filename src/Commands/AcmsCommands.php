@@ -2,17 +2,17 @@
 
 namespace Drupal\acquia_cms_common\Commands;
 
-use Drush\Commands\DrushCommands;
-use Drupal\Core\KeyValueStore\KeyValueFactory;
 use Consolidation\AnnotatedCommand\CommandData;
 use Consolidation\AnnotatedCommand\CommandError;
-use Drupal\Core\Extension\ModuleHandlerInterface;
-use Drupal\Core\Logger\LoggerChannelFactoryInterface;
-use Consolidation\SiteAlias\SiteAliasManagerAwareTrait;
-use Drupal\acquia_cms_common\Services\AcmsUtilityService;
-use Consolidation\SiteAlias\SiteAliasManagerAwareInterface;
 use Consolidation\OutputFormatters\Options\FormatterOptions;
 use Consolidation\OutputFormatters\StructuredData\PropertyList;
+use Consolidation\SiteAlias\SiteAliasManagerAwareInterface;
+use Consolidation\SiteAlias\SiteAliasManagerAwareTrait;
+use Drupal\acquia_cms_common\Services\AcmsUtilityService;
+use Drupal\Core\Extension\ModuleHandlerInterface;
+use Drupal\Core\KeyValueStore\KeyValueFactory;
+use Drupal\Core\Logger\LoggerChannelFactoryInterface;
+use Drush\Commands\DrushCommands;
 
 /**
  * A Drush command file.
@@ -255,7 +255,10 @@ class AcmsCommands extends DrushCommands implements SiteAliasManagerAwareInterfa
    * @usage acms:starter-kit
    *   Display starter kit value.
    */
-  public function starterKit($filter = '', $options = ['project' => self::REQ, 'format' => 'table']) {
+  public function starterKit($filter = '', $options = [
+    'project' => self::REQ,
+    'format' => 'table',
+  ]) {
     if ($starter_kit = $this->acmsUtilityService->getStarterKit()) {
       $data['starter-kit'] = $starter_kit;
       $result = new PropertyList($data);
